@@ -1,0 +1,35 @@
+MODULE Sample;
+
+CONST i = 5;
+
+TYPE expr : INTEGER;
+
+VAR i:INTEGER;
+
+PROCEDURE S();
+PROCEDURE T();
+END T;
+END S;
+
+BEGIN
+        b := (a[0] + 6 + b[12456]) - (7 DIV 153);
+        e := 100 MOD 5;
+        sin(200);
+        WHILE (a > 5) DO
+                function1;
+                function2();
+                function3(a, b, answer);
+                s := answer
+        END;
+        IF a > 42 THEN
+                function4();
+                sin(800)
+        ELSIF (B > 145) THEN
+                sin(900)
+        ELSIF cat < dog THEN
+                foo := bar;
+                lolcode()
+        ELSE
+                sin(100500)
+        END
+END Sample.

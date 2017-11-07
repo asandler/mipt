@@ -1,0 +1,3 @@
+lex oberon.l
+bison -d oberon.y
+gcc -g -o expr *.c
