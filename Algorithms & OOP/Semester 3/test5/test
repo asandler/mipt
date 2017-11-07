@@ -1,0 +1,14 @@
+9
+a b 1
+b c 1
+d c 3
+c b 5
+b a 4
+c d 7
+b e 6
+e f 5
+f b 10
+3
+a f
+f d
+a d
