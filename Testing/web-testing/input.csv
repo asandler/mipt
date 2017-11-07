@@ -1,0 +1,7 @@
+#group,name,description,expected_result,additional_information
+sandler,some spravochnik,lol what,OK,nothing
+sandler,,eew,FAILED,empty name
+sandler,koko,rehdfterhe,OK,nothing
+sandler,some spravochnik,lol what,FAILED,already exists
+not_existing_group,124,532,FAILED,group doesn't exist
+,124,532,FAILED,empty group
