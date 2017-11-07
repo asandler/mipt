@@ -1,0 +1,14 @@
+p = 561/700, 88.92193264547532, n = 135/300
+Checking account exists (no matter how much money there are on it)
+
+p = 527/700, 93.72308591613465, n = 114/300
+Client owns a house
+
+p = 526/700, 92.95669771063523, n = 114/300
+Client's age is less than 75, owns a house
+
+p = 523/700, 89.17866092950493, n = 115/300
+Client owns a house, between one and three existing credits at this bank
+
+p = 522/700, 89.93833778221477, n = 114/300
+Credit is being taken on more than four months, client owns a house

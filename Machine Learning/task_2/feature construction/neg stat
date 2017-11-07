@@ -1,0 +1,14 @@
+n = 257/300, 98.92007454873789, p = 340/700
+No checking account, credit amount less 10170
+
+n = 255/300, 97.55160881394725, p = 336/700
+No checking account, less than 3 existing credits in this bank
+
+n = 254/300, 96.24936334537364, p = 335/700
+No checking account, foreign worker
+
+n = 254/300, 88.09291544326987, p = 348/700
+No checking account, credit duration less than 67 months
+
+n = 245/300, 56.79204991679733, p = 378/700
+No checking account or >= 200 DM, credit duration less than 64 months, no other debtors/guarantors
