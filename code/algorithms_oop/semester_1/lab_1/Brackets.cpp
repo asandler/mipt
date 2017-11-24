@@ -17,7 +17,7 @@ class TArrayIterator : public ICharIterator
 {
 public:
     TArrayIterator(const string &st) : s(st), it(0) {}
-    virtual bool GetNextChar(char &ch) 
+    virtual bool GetNextChar(char &ch)
     {
         if (it == s.length()) return false;
         else {

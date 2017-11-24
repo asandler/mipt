@@ -12,7 +12,7 @@
 typedef unsigned char small;
 
 typedef struct {
-        small *data; 
+        small *data;
         size_t length, alloc_size, base;
         char sign;
 } bigint;

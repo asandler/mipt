@@ -16,7 +16,7 @@ void output(int i, int j)
 		cout << s1[i-1];
 		flag = true;
 	}
-	else 
+	else
 		a[i][j-1] > a[i-1][j] ? output(i, j-1) : output(i-1, j);
 }
 
@@ -28,7 +28,7 @@ int main()
 	int m = s2.length();
 	for (int i=0; i<n; i++)
 		for (int j=0; j<m; j++)
-			if ( s1[i] == s2[j] ) 
+			if ( s1[i] == s2[j] )
 				a[i+1][j+1] = a[i][j] + 1;
 			else a[i+1][j+1] = max(a[i+1][j], a[i][j+1]);
 	output(n,m);

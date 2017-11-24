@@ -61,7 +61,7 @@ private:
 class AdaBoost {
 public:
     AdaBoost(int _step) : C(_step) {}
-    
+
     void Train(vector<pair<string, int> > train) {
         vector<double> w, errors;
         vector<int> features;

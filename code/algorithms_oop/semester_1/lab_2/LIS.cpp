@@ -29,7 +29,7 @@ int main()
 	cout << "This program counts maximal increasing subsequience in entered sequience" << endl;
 	cout << "Enter integer n (length of sequience)>> ";
 	cin >> n;
-	if (n<1) 
+	if (n<1)
 	{
 		cout << "There are no any subsequiences" << endl;
 		return 0;

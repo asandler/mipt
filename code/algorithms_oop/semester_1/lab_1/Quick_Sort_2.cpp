@@ -23,10 +23,10 @@ int partition(T *a, int size, T x, bool (*cmp)(const T &, const T &))
 
 	do
 	{
-		while ((*cmp)(a[i],x)) i=i+1; 
+		while ((*cmp)(a[i],x)) i=i+1;
 		while ((*cmp)(x,a[j])) j=j-1;
 
-		if (i<=j) 
+		if (i<=j)
 		{
 			Swap(a[i],a[j]);
 			++i;

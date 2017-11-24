@@ -115,7 +115,7 @@ void *mainthread(void *ptr) {
 
 int main() {
         struct timeval tv1, tv2;
-        
+
         input();
         initRequests();
         for (set<string>::iterator it = Vertices.begin(); it != Vertices.end(); it++) {

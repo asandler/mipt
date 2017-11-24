@@ -29,7 +29,7 @@ int main() {
         x.push_back(x_cur);
         y.push_back(y_cur);
     }
-    
+
     for (size_t i = 1; i < x.size() - 2; ++i) {
         for (double x_calc = x[i]; x_calc <= x[i + 1]; x_calc += 0.001) {
             cout << lagr(x, y, x_calc, i) << ' ' << x_calc << endl;

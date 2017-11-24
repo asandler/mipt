@@ -12,7 +12,7 @@
 typedef unsigned char small;
 
 typedef struct {
-        small *data; 
+        small *data;
         size_t length, alloc_size, base;
         char sign;
 } bigint;
@@ -529,13 +529,13 @@ int mod(bigint *a, bigint *b, bigint *answer) {
                 }
                 temp.sign = b->sign;
                 if (copy_number(answer, &temp) != OK) {
-                        free_numbers(2, &temp, &temp2);  
+                        free_numbers(2, &temp, &temp2);
                         return OUT_OF_MEMORY;
                 }
                 free_numbers(2, &temp, &temp2);
         } else {
                 if (a->sign < 0) {
-                        if (copy_number(&temp, a) != OK) { 
+                        if (copy_number(&temp, a) != OK) {
                                 free_numbers(2, &temp, &temp2);
                                 return OUT_OF_MEMORY;
                         }
@@ -626,7 +626,7 @@ int _256_to_dec(bigint *a, bigint *answer) {
         if (a->base != 256)
                 return DIF_BASES;
         init_numbers(3, 10, &_256, &ans, &temp2);
-        ans.sign = _256.sign = temp2.sign = 1; 
+        ans.sign = _256.sign = temp2.sign = 1;
         t = add_to_number(&_256, 6);
         t = (t == OK) ? add_to_number(&_256, 5) : t;
         t = (t == OK) ? add_to_number(&_256, 2) : t;

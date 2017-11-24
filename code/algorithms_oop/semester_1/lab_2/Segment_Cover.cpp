@@ -52,7 +52,7 @@ void solve(int x, int y, int n)
 	if ( up_bound >= y )
 		for (int j=0; j<i; ++j)
 			cout << '[' << a[b[i]].left << ':' << a[b[i]].right << ']' << endl;
-	else 
+	else
 		cout << "net takoi sistemb|" << endl;
 }
 

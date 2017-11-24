@@ -5,13 +5,13 @@
 #include <sstream>
 #include <queue>
 #include <algorithm>
- 
+
 using namespace std;
 
 map <string, pair<string, int> > t9;
 string current;
 vector< pair<pair<int, int>, string> > found;
- 
+
 class AhoCorasick {
 public:
         typedef void (*Callback) (const char* substr, int begin, int end);
@@ -30,7 +30,7 @@ public:
                         delete current_node;
                 }
         }
- 
+
         void AddString(const char* str) {
                 BorNode* node = &root;
                 for (const char* s = str; *s; ++s) {
@@ -46,7 +46,7 @@ public:
                 node->out = words.size();
                 words.push_back(str);
         }
- 
+
         void Init() {
                 root.fail = &root;
                 queue<BorNode*> q;
@@ -58,7 +58,7 @@ public:
                                 BorNode* child = iter->second;
                                 char symb = iter->first;
                                 q.push(child);
-                                
+
                                 BorNode* parent_fail = current_node->fail;
                                 while (true) {
                                         map<char, BorNode*>::const_iterator it = parent_fail->links.find(symb);
@@ -79,7 +79,7 @@ public:
                         }
                 }
         }
- 
+
         void Search(const char* str, Callback callback) {
                 BorNode* current_node = &root;
                 for (int pos = 1; *str; ++str, ++pos) {
@@ -93,27 +93,26 @@ public:
                         }
                         if (iter != current_node->links.end()) {
                                 current_node = iter->second;
-         
                                 if (current_node->out >= 0) {
                                         callback(words[current_node->out].c_str(), pos - words[current_node->out].length(), pos - 1);
                                 }
                         }
                 }
         }
- 
+
 private:
         struct BorNode {
                 BorNode() : fail(NULL), out(-1) {}
- 
+
                 map<char, BorNode*> links;
                 BorNode* fail;
                 int out;
         };
- 
+
         BorNode root;
         vector<string> words;
 };
- 
+
 void count(const char* str, int start, int end) {
         found.push_back(make_pair(make_pair(start + 1, end + 1), str));
 }

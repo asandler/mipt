@@ -159,7 +159,7 @@ let maxIndex(lst:List<int>) =
                 tailAns
             else
                 (List.head lst, num)
-    
+
     snd(subMaxIndex(lst, 0))
 
 let maxIndexTailRec(lst:List<int>) =
@@ -184,7 +184,7 @@ let Years(s:student) =
     (nowDays - born) / 365
 
 [<EntryPoint>]
-let main argv = 
+let main argv =
     let l = [4; 2; 5637; 24; 13457; 23; 3; -5]
     printfn "%A" l
     printfn "%A" (removeN(l, 4))

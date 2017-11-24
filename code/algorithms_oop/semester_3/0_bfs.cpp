@@ -21,7 +21,7 @@ int main() {
                                 Visited[it.To()] = true;
                         }
                 Q.pop();
-	}              
+	}
 	for (TEdgeIterator it = G->ListNeighbours("a"); it.IsValid(); it.GetNext())
                 cout << it.To() << "^_^" << it.Weight() << endl;
 	return 0;

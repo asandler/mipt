@@ -83,7 +83,7 @@ struct node {
 
 class BKtree {
 public:
-        
+
         BKtree(const string &str) {
                 __root.s = str;
         }
@@ -109,7 +109,7 @@ public:
         }
 
 private:
-        
+
         void print(node vertex, int tabsize) {
                 for (int i = 0; i < tabsize * 2; i++) {
                         cout << ' ';

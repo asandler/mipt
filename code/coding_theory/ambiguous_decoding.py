@@ -38,7 +38,7 @@ def edge_check(v1, v2, code, edge_names):
 
 def solve(vertices, graph, edge_names):
     """
-    Solve function applies Bellman-Ford algorithm to the graph obtained in __main__, 
+    Solve function applies Bellman-Ford algorithm to the graph obtained in __main__,
     and then calculates the shortest ambiguosly decoded word, if there are any.
     """
     d = {}

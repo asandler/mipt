@@ -32,7 +32,7 @@ tests.each do |group,name,descr,expected,add|
     begin
         Watir::Wait.until{ b.button(:id => "dictionaries-add-button-submit").enabled? }
         b.button(:id => "dictionaries-add-button-submit").click
-    rescue Watir::Wait::TimeoutError 
+    rescue Watir::Wait::TimeoutError
         puts "FAILED"
         b.close
         next
@@ -40,7 +40,7 @@ tests.each do |group,name,descr,expected,add|
 
     begin
         b.button(:title => "Добавить перекодировку").wait_until_present
-    rescue Watir::Wait::TimeoutError 
+    rescue Watir::Wait::TimeoutError
         puts "FAILED"
         b.close
         next

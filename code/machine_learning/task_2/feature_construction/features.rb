@@ -3,7 +3,7 @@ $table = Hash.new(0)
 def in_rand_subset a, b, ar, n, filename
     if rand >= 0.5
         rand_subset = [rand(a..b)]
-    else 
+    else
         begin
             rand_subset = (a..b).each.map{ |i| i if rand <= 0.5 }.compact
         end while rand_subset.empty?
@@ -23,7 +23,7 @@ def bound_more a, b, ar, n, filename
 end
 
 def bound_less a, b, ar, n, filename
-    bound = rand(b - a + 1) + a 
+    bound = rand(b - a + 1) + a
     f = File.open(filename, 'a')
     f.puts "#{n}: bound_less, #{bound}"
     f.close

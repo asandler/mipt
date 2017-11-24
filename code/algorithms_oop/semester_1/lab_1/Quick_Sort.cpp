@@ -16,10 +16,10 @@ int partition(int *array, int size, int x)
 
 	do
 	{
-		while (array[i]<x) i=i+1; 
+		while (array[i]<x) i=i+1;
 		while (array[j]>x) j=j-1;
 
-		if (i<=j) 
+		if (i<=j)
 		{
 			swap(array[i],array[j]);
 			++i;

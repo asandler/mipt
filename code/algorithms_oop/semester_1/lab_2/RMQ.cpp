@@ -21,7 +21,7 @@ double RMQ(int _a, int _b)
 	int lev = _a, rig = _b;
 	if ( !a[_a].if_left )
 		lev++;
-	if ( a[_b].if_left ) 
+	if ( a[_b].if_left )
 		rig--;
 	return min(RMQ(a[lev].parent, a[rig].parent), min(a[_a].data, a[_b].data));
 }

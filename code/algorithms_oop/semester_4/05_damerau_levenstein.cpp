@@ -35,7 +35,7 @@ int DistTable[26][26] = {
 };
 
 vector <string> dict;
- 
+
 int CalcSubstitutionPenalty(char a, char b) {
     return DistTable[a - 'a'][b - 'a'];
 }

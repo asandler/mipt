@@ -9,7 +9,7 @@ let rec stupid (ans:float, cur:float, x:float, n:int) =
     else
         stupid(ans, cur + (log(3.0) ** float n) / float (fac n) * (x ** float n), x, n + 1)
 
-let rec fast (ans:float, cur:float, last:float, x:float, n:int) = 
+let rec fast (ans:float, cur:float, last:float, x:float, n:int) =
     if abs(ans - cur) < 1e-4 then
         [cur; float n]
     else

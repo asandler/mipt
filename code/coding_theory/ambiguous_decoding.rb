@@ -23,7 +23,7 @@ def edge_check v1, v2
         next if not p1 or not p2 or p1 > 0 or p2 + v2.size != s.size or v1.size + v2.size > s.size
         if $cstar[s[p1 + v1.size..p2 - 1]]
             $edges[[v1, v2]] = s[p1 + v1.size..p2-1]
-            return s.size - v1.size 
+            return s.size - v1.size
         end
     end
     return nil
@@ -62,7 +62,7 @@ cstar_mem
 v.each do |v1|
     v.each do |v2|
         t = edge_check(v1, v2)
-        h[[v1, v2]] = t if t 
+        h[[v1, v2]] = t if t
     end
 end
 puts "Graph built"

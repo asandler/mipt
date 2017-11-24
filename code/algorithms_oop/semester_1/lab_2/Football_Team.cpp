@@ -2,8 +2,8 @@
 #include <algorithm>
 
 using namespace std;
- 
-struct player 
+
+struct player
 {
 	double ef;
 	int number;
@@ -14,7 +14,7 @@ int comp(const void * a, const void * b)
 	const player* name1 = (const player*) a;
 	const player* name2 = (const player*) b;
 	if (name1->ef > name2->ef) return -1;
-	else 
+	else
 		if (name1->ef == name2->ef) return 0;
 		else return 1;
 }

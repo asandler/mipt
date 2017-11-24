@@ -22,7 +22,7 @@ public:
                         return v;
                 return parent[v] = Find_set(parent[v]);
         }
-         
+
         void Union_sets(T a, T b) {
                 a = Find_set(a);
                 b = Find_set(b);

@@ -22,7 +22,7 @@ class SuffixFactor
             end
         end
     end
-    
+
     def calc key, length
         k = key[-length..-1]
         @f[k] ? @f[k].sum.to_f / @f[k].size : 0
@@ -62,7 +62,7 @@ class NGramFactor
             end
         end
     end
-    
+
     def calc key, length
         answer = 0
         (0..key.length - length).each do |p|

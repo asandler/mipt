@@ -7,7 +7,7 @@ let rec randomTree() =
         Empty
     else
         Tree(randomTree(), rnd.Next(), randomTree())
- 
+
 let rec height tree =
     match tree with
     | Empty -> 0
