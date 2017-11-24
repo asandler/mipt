@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 int DistTable[26][26] = {
     {0, 5, 3, 2, 2, 3, 4, 5, 7, 6, 7, 8, 7, 6, 8, 9, 1, 3, 1, 4, 6, 4, 1, 2, 5, 1},
     {5, 0, 2, 3, 4, 2, 1, 1, 3, 2, 3, 4, 2, 1, 4, 5, 6, 3, 4, 2, 2, 1, 5, 3, 1, 4},
@@ -31,43 +30,42 @@ int DistTable[26][26] = {
     {1, 5, 3, 2, 1, 3, 4, 5, 6, 6, 7, 8, 7, 6, 7, 8, 1, 2, 1, 3, 5, 4, 0, 2, 4, 1},
     {2, 3, 1, 1, 1, 2, 3, 4, 6, 5, 6, 7, 5, 4, 7, 8, 3, 2, 1, 3, 5, 2, 2, 0, 4, 1},
     {5, 1, 3, 3, 3, 2, 1, 1, 2, 2, 3, 4, 3, 2, 3, 4, 5, 2, 4, 1, 1, 2, 4, 4, 0, 5},
-    {1, 4, 2, 2, 2, 3, 4, 5, 7, 6, 7, 8, 6, 5, 8, 9, 2, 3, 1, 4, 6, 3, 1, 1, 5, 0}
-};
+    {1, 4, 2, 2, 2, 3, 4, 5, 7, 6, 7, 8, 6, 5, 8, 9, 2, 3, 1, 4, 6, 3, 1, 1, 5, 0}};
 
-vector <string> dict;
+vector<string> dict;
 
 int CalcSubstitutionPenalty(char a, char b) {
     return DistTable[a - 'a'][b - 'a'];
 }
 
 int min(int a, int b, int c) {
-        return min(min(a, b), c);
+    return min(min(a, b), c);
 }
 
 int Distance(const string& a, const string& b) {
-        int d[a.length() + 1][b.length() + 1];
-        for (size_t i = 0; i <= a.length(); i++) {
-                d[i][0] = i * 2;
+    int d[a.length() + 1][b.length() + 1];
+    for (size_t i = 0; i <= a.length(); i++) {
+        d[i][0] = i * 2;
+    }
+    for (size_t j = 0; j <= b.length(); j++) {
+        d[0][j] = j * 2;
+    }
+    for (size_t i = 1; i <= a.length(); i++) {
+        for (size_t j = 1; j <= b.length(); j++) {
+            d[i][j] = min(
+                d[i][j - 1] + 2,                                              //insertion
+                d[i - 1][j] + 2,                                              //deletion
+                d[i - 1][j - 1] + CalcSubstitutionPenalty(a[i - 1], b[j - 1]) //substitution
+            );
+            if (i > 1 && j > 1 && a[i - 1] == b[j - 2] && a[i - 2] == b[j - 1]) {
+                d[i][j] = min(
+                    d[i][j],
+                    d[i - 2][j - 2] + 1 //transposition
+                );
+            }
         }
-        for (size_t j = 0; j <= b.length(); j++) {
-                d[0][j] = j * 2;
-        }
-        for (size_t i = 1; i <= a.length(); i++) {
-                for (size_t j = 1; j <= b.length(); j++) {
-                        d[i][j] = min(
-                                d[i][j - 1] + 2, //insertion
-                                d[i - 1][j] + 2, //deletion
-                                d[i - 1][j - 1] + CalcSubstitutionPenalty(a[i - 1], b[j - 1]) //substitution
-                        );
-                        if (i > 1 && j > 1 && a[i - 1] == b[j - 2] && a[i - 2] == b[j - 1]) {
-                                d[i][j] = min(
-                                        d[i][j],
-                                        d[i - 2][j - 2] + 1 //transposition
-                                );
-                        }
-                }
-        }
-        /*
+    }
+    /*
         for (size_t i = 0; i <= a.length(); i++) {
                 for (size_t j = 0; j <= b.length(); j++) {
                         cout << d[i][j] << ' ';
@@ -75,31 +73,31 @@ int Distance(const string& a, const string& b) {
                 cout << endl;
         }
         */
-        return d[a.length()][b.length()];
+    return d[a.length()][b.length()];
 }
 
 void Similar(const string& s, int penalty) {
-        cout << s << ':' << endl;
-        for (vector<string>::iterator it = dict.begin(); it != dict.end(); it++) {
-                if (Distance(s, *it) <= penalty) {
-                        cout << "-->" << *it << endl;
-                }
+    cout << s << ':' << endl;
+    for (vector<string>::iterator it = dict.begin(); it != dict.end(); it++) {
+        if (Distance(s, *it) <= penalty) {
+            cout << "-->" << *it << endl;
         }
-        cout << endl;
+    }
+    cout << endl;
 }
 
 int main() {
-        int n, m, penalty;
-        string s;
-        cin >> n;
-        for (int i = 0; i < n; i++) {
-                cin >> s;
-                dict.push_back(s);
-        }
-        cin >> m;
-        for (int i = 0; i < m; i++) {
-                cin >> s >> penalty;
-                Similar(s, penalty);
-        }
-        return 0;
+    int n, m, penalty;
+    string s;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> s;
+        dict.push_back(s);
+    }
+    cin >> m;
+    for (int i = 0; i < m; i++) {
+        cin >> s >> penalty;
+        Similar(s, penalty);
+    }
+    return 0;
 }

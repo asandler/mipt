@@ -11,11 +11,15 @@
 
 using namespace std;
 
-unordered_map<string, vector<int> > BigMemory;
+unordered_map<string, vector<int>> BigMemory;
 
 class WeakClassifier {
 public:
-    WeakClassifier(int _step) : step(_step), number(0) {}
+    WeakClassifier(int _step)
+        : step(_step)
+        , number(0)
+    {
+    }
 
     vector<int> Classify(string key) {
         if (BigMemory.find(key) != BigMemory.end()) {
@@ -54,15 +58,19 @@ public:
         }
         return number;
     }
+
 private:
     int step, number;
 };
 
 class AdaBoost {
 public:
-    AdaBoost(int _step) : C(_step) {}
+    AdaBoost(int _step)
+        : C(_step)
+    {
+    }
 
-    void Train(vector<pair<string, int> > train) {
+    void Train(vector<pair<string, int>> train) {
         vector<double> w, errors;
         vector<int> features;
 
@@ -78,11 +86,11 @@ public:
                     errors[j] += (features[j] == train[i].second) ? 0 : w[i];
                 }
             }
-                for (size_t j = 0; j < T; ++j) {
-                    if (errors[j] == 0) {
-                        errors[j] = 100;
-                    }
+            for (size_t j = 0; j < T; ++j) {
+                if (errors[j] == 0) {
+                    errors[j] = 100;
                 }
+            }
 
             double e = 2;
             size_t ind_min;
@@ -115,7 +123,7 @@ public:
     int Classify(string key) {
         double sum = 0;
         vector<int> features = C.Classify(key);
-        for (vector<pair<double, size_t> >::iterator it = answer.begin(); it != answer.end(); ++it) {
+        for (vector<pair<double, size_t>>::iterator it = answer.begin(); it != answer.end(); ++it) {
             sum += (*it).first * features[(*it).second];
         }
         return (sum > 0) ? 1 : -1;
@@ -129,10 +137,10 @@ public:
         }
     }
 
-    double Precision(vector<pair<string, int> > test) {
+    double Precision(vector<pair<string, int>> test) {
         int count = 0;
         int pl = 0, mun = 0;
-        for (vector<pair<string, int> >::iterator it = test.begin(); it != test.end(); ++it) {
+        for (vector<pair<string, int>>::iterator it = test.begin(); it != test.end(); ++it) {
             if (Classify((*it).first) == (*it).second) {
                 count++;
                 if ((*it).second == 1) {
@@ -147,12 +155,12 @@ public:
     }
 
 private:
-    vector<pair<double, size_t> > answer;
+    vector<pair<double, size_t>> answer;
     WeakClassifier C;
 };
 
 int main() {
-    vector<pair<string, int> > train, tiktak;
+    vector<pair<string, int>> train, tiktak;
     vector<string> test;
     string s;
     bool flag = false;
@@ -179,6 +187,6 @@ int main() {
     AdaBoost A(1);
     A.Train(train);
     cout << A.Precision(tiktak) << endl;
-//    A.Test(test);
+    //    A.Test(test);
     return 0;
 }

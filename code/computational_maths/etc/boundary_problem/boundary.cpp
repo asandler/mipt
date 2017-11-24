@@ -33,19 +33,19 @@ double b_x(double x, double t) {
 }
 
 double u_t0(double x) {
-    return (x-1) * (x-1);
+    return (x - 1) * (x - 1);
 }
 
 double u_x0(double t) {
-    return exp(2*t) + 0.5 * t * t;
+    return exp(2 * t) + 0.5 * t * t;
 }
 
 double dudx(int x, int t) {
-    return (3 * u[x][t] - 4 * u[x-1][t] + u[x-2][t]) / (2 * h);
+    return (3 * u[x][t] - 4 * u[x - 1][t] + u[x - 2][t]) / (2 * h);
 }
 
 double d2udx2(int x, int t) {
-    return (u[x][t] - 2 * u[x-1][t] + u[x-2][t]) / (2 * h * h);
+    return (u[x][t] - 2 * u[x - 1][t] + u[x - 2][t]) / (2 * h * h);
 }
 
 double alpha(double x, double t) {
@@ -58,11 +58,11 @@ double beta(double x, double t) {
 
 int main() {
     int k = 0;
-    for (double p = 0; p <=1; p += h, k++) {
+    for (double p = 0; p <= 1; p += h, k++) {
         u[k][0] = u_t0(p);
     }
     k = 0;
-    for (double p = 0; p <=1; p += tau, k++) {
+    for (double p = 0; p <= 1; p += tau, k++) {
         u[0][k] = u_x0(p);
     }
     k = 0;
@@ -74,7 +74,7 @@ int main() {
     for (double q = 0; q <= 1 - tau; q += tau, t++) {
         int x = 2;
         for (double p = 2 * h; p <= 1; p += h, x++) {
-            u[x][t] = tau * (b(p, q) + 0.5 * tau * alpha(p, q) + a(p, q) * a(p, q) * tau * d2udx2(x, t-1) - beta(p, q) * dudx(x, t-1)) + u[x][t-1];
+            u[x][t] = tau * (b(p, q) + 0.5 * tau * alpha(p, q) + a(p, q) * a(p, q) * tau * d2udx2(x, t - 1) - beta(p, q) * dudx(x, t - 1)) + u[x][t - 1];
         }
     }
 

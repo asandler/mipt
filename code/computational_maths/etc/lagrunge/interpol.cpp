@@ -4,7 +4,7 @@
 
 using namespace std;
 
-double lagr(vector<double> &x, vector<double> &y, double x_calc, size_t index) {
+double lagr(vector<double>& x, vector<double>& y, double x_calc, size_t index) {
     double ans = 0.0;
     for (size_t i = index - 1; i < index + 3; ++i) {
         double temp = 1.0;

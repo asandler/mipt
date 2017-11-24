@@ -37,7 +37,7 @@ int main() {
         c[i] = c[i] * m;
         v[i] = (v[i] - a[i] * v[i - 1]) * m;
     }
-    for (int i = n - 1; i-- > 0; ) {
+    for (int i = n - 1; i-- > 0;) {
         v[i] = v[i] - c[i] * v[i + 1];
     }
 

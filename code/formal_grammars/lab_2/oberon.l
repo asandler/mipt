@@ -35,13 +35,13 @@ INTEGER ([1-9][0-9]*)|0
 "INTEGER"       { return INT_TYPE; }
 "TYPE"          { return TYPE; }
 {INTEGER}       { yylval.string = copy_to(1, yytext); return INTEGER; }
-{IDENT}		{ yylval.string = copy_to(1, yytext); return IDENT; }
+{IDENT}        { yylval.string = copy_to(1, yytext); return IDENT; }
 ":="            { return ASSIGN; }
-"="		{ return '='; }
-"+"		{ return '+'; }
-"-"		{ return '-'; }
-"*"		{ return '*'; }
-"/"		{ return '/'; }
+"="        { return '='; }
+"+"        { return '+'; }
+"-"        { return '-'; }
+"*"        { return '*'; }
+"/"        { return '/'; }
 "#"             { return '#'; }
 "&"             { return '&'; }
 "~"             { return '~'; }
@@ -49,8 +49,8 @@ INTEGER ([1-9][0-9]*)|0
 "<="            { return LESEQUAL; }
 ">"             { return '>'; }
 "<"             { return '<'; }
-"("		{ return '('; }
-")"		{ return ')'; }
+"("        { return '('; }
+")"        { return ')'; }
 "["             { return '['; }
 "]"             { return ']'; }
 "{"             { return '{'; }
@@ -60,6 +60,6 @@ INTEGER ([1-9][0-9]*)|0
 ","             { return ','; }
 "."             { return '.'; }
 [ \t\n]         { }
-.		{ return("Lexical error: symbol '%c'!\n", yytext[0]); exit(1); }
+.        { return("Lexical error: symbol '%c'!\n", yytext[0]); exit(1); }
 
 %%
