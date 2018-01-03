@@ -75,7 +75,7 @@ void Ant::goTo(BaseObject* A) {
     while (true) {
         size_t choice = act[(rand() % size) + 1];
         switch (choice) {
-            case 1: 
+            case 1:
                 setCoord(Dec(I(), Field::Instance().H()), J()); return;
             case 2:
                 setCoord(Inc(I(), Field::Instance().H()), J()); return;
@@ -114,7 +114,7 @@ void Ant::feedSomebody(BaseObject* A) {
 void Ant::randomMove() {
     while (true) {
         switch (rand() % 4) {
-            case 0: 
+            case 0:
                 if (setCoord(I() - 1, J())) { return; }
             case 1:
                 if (setCoord(I() + 1, J())) { return; }
@@ -164,7 +164,7 @@ bool Builder::act(Field &F) {
 void Builder::randomMove() {
     while (true) {
         switch (rand() % 4) {
-            case 0: 
+            case 0:
                 setCoord(I() + 1, J()); return;
             case 1:
                 setCoord(I() - 1, J()); return;

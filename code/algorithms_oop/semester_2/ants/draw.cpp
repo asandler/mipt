@@ -25,4 +25,4 @@ void init_stdio() {
     window = newwin(0, 0, 0, 0);
     refresh();
     wrefresh(window);
-} 
+}

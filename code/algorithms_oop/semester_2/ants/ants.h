@@ -145,7 +145,7 @@ public:
     void incMeal() {
         ++m;
     }
-    
+
     bool decMeal() {
         if (m <= 0) {
             return false;
